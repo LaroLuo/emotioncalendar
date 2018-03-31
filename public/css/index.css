@@ -16,7 +16,12 @@
 	position: absolute;
 
 	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 5vh;
+}
 
+#ti {
+	margin: 0;
 }
 
 .date {
@@ -31,15 +36,56 @@
 }
 
 .emotion {
+	top: 35vh;
+	left: 40vw;
+	width: 20vw;
+	height: 25vh;
 	position: absolute;
+	text-align: center;
+}
+
+#emPic {
+	height: 100%;
 }
 
 .trend {
+	top: 60vh;
+	left: 42vw;
+	width: 16vw;
+	height: 20vh;
 	position: absolute;
+	text-align: center;
+}
+
+#trendPic {
+	height: 100%;
 }
 
 .yesterday {
+	top: 40vh;
+	left: 1vw;
+	width: 30vw;
+	height: 10vh;
 	position: absolute;
+}
+
+#prev {
+	width: 4vw;
+	height: 10vh;
+	float: left;
+}
+
+#prevPic {
+	margin-top: 20%;
+	-webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+	height: 60%;
+}
+
+#prevText {
+	width: 26vw;
+	height: 10vh;
+	float: left;
 }
 
 .tommorrow {

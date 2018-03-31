@@ -5,7 +5,9 @@
     EmotionCalendar:)
   </title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <script src="js/index/config.js"></script>
   <script src="js/index/date.js"></script>
   <script>
@@ -17,6 +19,14 @@
   <div class="icon">
   	EmotionCalendar
   </div>
+  <script>
+
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="txt"></div>
   <div class="time">
   	<h1 id="ti"></h1>
   </div>
@@ -24,13 +34,18 @@
   	<h1 id="da"></h1>
   </div>
   <div class="emotion">
-
+	<img src="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/smiling-face-with-open-mouth-and-smiling-eyes.png" id="emPic">
   </div>
   <div class="trend">
-  	
+  	<img src="https://freeiconshop.com/wp-content/uploads/edd/upward-trend-flat.png" id="trendPic">
   </div>
   <div class="yesterday">
-
+  	<div id="prev">
+  		<img src="https://www.iconsdb.com/icons/preview/gray/arrow-32-xxl.png" id="prevPic" align="middle">
+  	</div>
+  	<div id="prevText"> 
+  		<h3>View Yesterday</h3>
+  	</div>
   </div>
   <div class="tommorrow">
 
