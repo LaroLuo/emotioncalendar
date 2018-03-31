@@ -1,0 +1,47 @@
+.icon {
+	top: 1vh;
+	left: 1vw;
+	width: 20vw;
+	height: 10vh;
+	position: absolute;
+
+	text-align: center;
+}
+
+.time {
+	top: 10vh;
+	left: 20vw;
+	width: 60vw;
+	height: 15vh;
+	position: absolute;
+
+	text-align: center;
+
+}
+
+.date {
+	top: 25vh;
+	left: 20vw;
+	width: 60vw;
+	height: 10vh;
+	position: absolute;
+
+	text-align: center;
+
+}
+
+.emotion {
+	position: absolute;
+}
+
+.trend {
+	position: absolute;
+}
+
+.yesterday {
+	position: absolute;
+}
+
+.tommorrow {
+	position: absolute;
+}

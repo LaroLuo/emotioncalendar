@@ -4,16 +4,38 @@
   <title>
     EmotionCalendar:)
   </title>
-  <style type="text/css" src="css/index.css"></style>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
   <script src="js/index/config.js"></script>
   <script src="js/index/date.js"></script>
   <script>
    	config(); // Initialize Firebase
-   	getDate();
+   	
   </script>
 </head>
 <body>
+  <div class="icon">
+  	EmotionCalendar
+  </div>
+  <div class="time">
+  	<h1 id="ti"></h1>
+  </div>
+  <div class="date">
+  	<h1 id="da"></h1>
+  </div>
+  <div class="emotion">
 
+  </div>
+  <div class="trend">
+  	
+  </div>
+  <div class="yesterday">
+
+  </div>
+  <div class="tommorrow">
+
+  </div>
+  <a href="signin.html">signin</a>
+  <script src="js/index/index.js"></script>
 </body>
 </html>
