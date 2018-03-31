@@ -20,8 +20,8 @@ window.onload = function(){
 // ============ database setup ========
 var database = firebase.database();
 
-var indexRef = database().ref('/Index');
-var userRef = database().ref('/Users');
+var indexRef = database.ref('/Index');
+var userRef = database.ref('/Users');
 
 //find the user id using email of this user
 
