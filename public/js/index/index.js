@@ -4,4 +4,5 @@ var daySuffix = getDaySuffix();
 var hours = getHours();
 var minutes = getMinutes();
 document.getElementById("ti").innerHTML += hours + " : " + minutes;
-document.getElementByClassName("da").innerHTML += month + " " + day + " " + daySuffix;
+document.getElementById("da").innerHTML += month + " " + day + daySuffix;
+startTime();
