@@ -16,6 +16,36 @@ window.onload = function(){
 	checkIfLoggedIn();
 }
 
+
+// ============ database setup ========
+var database = firebase.database();
+
+var indexRef = database().ref('/Index');
+var userRef = database().ref('/Users');
+
+//find the user id using email of this user
+
+function getUserId(){
+	ref.once('value', function(snapshot) {
+	  snapshot.forEach(function(childSnapshot) {
+	    var childKey = childSnapshot.key;
+	    var childData = childSnapshot.val();
+	    console.log(childSnapshot);
+	    var currentUser = firebase.auth().currentUser;
+	    // ...
+
+
+	    if(childData==currentUser.email){
+	    	console.log('FOUND!');
+	    	return childKey;
+	    }
+	  });
+	  return "0000";
+	});
+}
+
+// ============ yes database =======
+
 function checkIfLoggedIn(){
 
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -30,6 +60,10 @@ function checkIfLoggedIn(){
 	    var uid = user.uid;
 	    var providerData = user.providerData;
 	    // ...
+
+	    //get userID
+	    var currentUserId = getUserId();
+	    console.log('horay!~ you found the user ID and returned in session: ', currentUserId);
 
 	    signinButton.setAttribute('style', 'display: inline-block; visibility: hidden;');
 	    signoutButton.setAttribute('style', 'display: inline-block; visibility: visible;');
