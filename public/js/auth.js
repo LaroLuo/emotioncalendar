@@ -68,6 +68,9 @@ function checkIfLoggedIn(){
 
 	    var getUserIdPromise = new Promise(function(resolve, reject){
 	    	var currentUserId = getUserId(user);
+	    	if(currentUserId!='0000'){
+	    		resolve()
+	    	}
 	    });
 
 	    signinButton.setAttribute('style', 'display: inline-block; visibility: hidden;');

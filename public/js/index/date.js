@@ -1,6 +1,5 @@
 function getMonth() {
 	var date = new Date();
-	alert("month");
 	var month = date.getMonth();
 	++month; // since getMonth() is between 0 - 11
 	switch (month) {
