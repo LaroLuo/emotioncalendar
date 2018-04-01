@@ -14,27 +14,36 @@ function translate(UNIX_timestamp){
 	  return time;
 }
 
-function getEmotion(reqTime){
-	var returnArray =[];
+function getDailyEmotions(obj){
+	var returnArray = []
+	var found = false;
 	console.log('time to run');
 
-	moodsRef.once('value', function(snapshot){
+	return moodsRef.once('value').then(snapshot => {
 		snapshot.forEach(function(childSnap){
+			var arr = []
 			console.log("translating: "+translate(childSnap.key));
 			//when found
-			if(reqTime==translate(childSnap.key)){
+			if(obj.reqTime==translate(childSnap.key)){
+				found = true;
 				console.log('yes!');
 				var moodRef = childSnap.child('mood/');
 
 				moodRef.forEach(function(childMood){
-					returnArray.push(childMood.val());
-					console.log(childMood.val());
-				})
-			}
-		})
-	})
+					obj.result.push(childMood.val());
+					console.log(obj.result);
+				});
 
-	return returnArray;
+				console.log("second test" + obj.result);
+				return obj;
+			}
+		});
+	});
 };
 
-console.log("haha: " + getEmotion("50218/Sep/12"));
+var obj = {"reqTime" : "50218/Sep/12","result" : []}
+getDailyEmotions(obj).then(snapshot => {console.log("real",obj.result)})
+
+
+
+
