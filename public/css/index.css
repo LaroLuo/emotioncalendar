@@ -3,6 +3,18 @@ body {
 	overflow-y: hidden;
 }
 
+.bg {
+	left: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	text-align: center;
+}
+
+#bgGif {
+	height: 100%;
+}
+
 .signin {
 	top: 1vh;
 	right: 10vh;
@@ -34,26 +46,19 @@ body {
 	background: none;
 }
 
-.bg {
-	left: 0;
-	height: 100%;
-	width: 100%;
+.welcome {
+	top: 1%;
+	left: 10%;
+	width: 80%;
+	height: 10%;
 	position: absolute;
 	text-align: center;
 }
 
-#bgGif {
-	height: 100%;
-}
-
-.icon {
-	top: 1vh;
-	left: 1vw;
-	width: 20vw;
-	height: 10vh;
-	position: absolute;
-
-	text-align: center;
+#welcomeFont {
+	font-size: 5vh;
+	font-family: 'Orbitron', sans-serif;
+	margin: 0;
 }
 
 .time {
@@ -110,11 +115,11 @@ body {
 	margin-top: 5%;
 	height: 90%;
 	transition: transform .2s; /* Animation */
-	opacity: 0.5;
+	opacity: 0.8;
 }
 
 #emPic:hover {
-	opacity: 0.9;
+	opacity: 1.0;
 	transform: scale(1.10);
 }
 
@@ -250,4 +255,28 @@ body {
 #dropdownPic:hover {
 	height: 150%;
 	opacity: 1;
+}
+
+.recommend {
+	bottom: 0;
+	left: 10%;
+	width: 80%;
+	height: 10%;
+	position: absolute;
+	background-color: blue;
+}
+
+.tip {
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	height: 30%;
+}
+
+.tipFont {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 3vh;
+	font-family: 'Orbitron', sans-serif;
+	color: white;
 }
