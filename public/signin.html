@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <script type="text/javascript" src="js/pulldata.js"></script> -->
+
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAxskV6EpJjuCBu8sSg0gQYCBcue6VAaKA",
+    authDomain: "emotioncalendar-65853.firebaseapp.com",
+    databaseURL: "https://emotioncalendar-65853.firebaseio.com",
+    projectId: "emotioncalendar-65853",
+    storageBucket: "emotioncalendar-65853.appspot.com",
+    messagingSenderId: "259570758530"
+  };
+  firebase.initializeApp(config);
+</script>
+</head>
+<body>
+	<button id="signinButton">Login with google</button>
+	<button id="signoutButton">Logout</button>
+
+	<div id="google-displayname"></div>
+	<img src="" id="google-pic">
+
+	<script type="text/javascript" src="js/auth.js"></script>
+</body>
+</html>
