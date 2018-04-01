@@ -25,21 +25,21 @@ var userRef = database.ref('Users/');
 
 //find the user id using email of this user
 
-function getUserId(user){
+function getUserId(){
 	indexRef.once('value', function(snapshot) {
 	  snapshot.forEach(function(childSnapshot) {
 	    var childKey = childSnapshot.key;
 	    var childData = childSnapshot.val();
-	    console.log(childSnapshot);
 	    var currentUser = firebase.auth().currentUser;
+	    console.log(childSnapshot);
 	    // ...
-
 
 	    if(childData==currentUser.email){
 	    	console.log('FOUND!: ', currentUser.email,childKey);
 	    	return childKey;
 	    }
 	  });
+	  console.log('NOT FOUND!: ');
 	  return "0000";
 	});
 }
@@ -67,11 +67,18 @@ function checkIfLoggedIn(){
 	    // console.log('horay!~ you found the user ID and returned in session: ', currentUserId);
 
 	    var getUserIdPromise = new Promise(function(resolve, reject){
-	    	var currentUserId = getUserId(user);
+	    	var currentUserId = getUserId();
 	    	if(currentUserId!='0000'){
-	    		resolve()
+	    		resolve(currentUserId);
 	    	}
+	    	reject(currentUserId);
 	    });
+
+	    getUserIdPromise.then(function(result){
+	    	console.log('horay: ', result);
+	    }).catch(function(result){
+	    	console.log('booo no user found: ',result);
+	    })
 
 	    signinButton.setAttribute('style', 'display: inline-block; visibility: hidden;');
 	    signoutButton.setAttribute('style', 'display: inline-block; visibility: visible;');
