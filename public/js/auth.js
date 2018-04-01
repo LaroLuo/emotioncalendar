@@ -16,13 +16,12 @@ window.onload = function(){
 	checkIfLoggedIn();
 }
 
-
 // ============ database setup ========
 var database = firebase.database();
 
 var indexRef = database.ref('Index/');
 var userRef = database.ref('Users/');
-
+var userid;
 //find the user id using email of this user
 
 function getUserId(){
@@ -37,6 +36,7 @@ function getUserId(){
 	    if(childData==currentUser.email){
 	    	console.log('FOUND!: ', currentUser.email,childKey);
 	    	console.log('SHOWDATA: current user: ',childKey);
+	    	userid = childKey;
 	    	showUserData(childKey);
 	    }
 	  });
@@ -46,9 +46,8 @@ function getUserId(){
 
 // ============ end database =======
 
-
 function showUserData(userID){
-	var userid = userID;
+	userid = userID;
 	console.log('showuserdata userid: '+userid);
 	var userRef = database.ref('Users/'+userid+'/conversation/');
 
@@ -66,7 +65,7 @@ function showUserData(userID){
 				var newDiv = document.createElement("div"); 
 
 				newDiv.classList.add("one");
-				var tempData = perEmotion.dimension.val() + ": "perEmotion.score.val();
+				var tempData = perEmotion.dimension.val() + ": " +perEmotion.score.val();
 				console.log("tempData: "+ tempData);
 				newDiv.innerHTML = tempData;
 
@@ -83,9 +82,6 @@ function showUserData(userID){
 			// var box = document.querySelector("#emotion1");
 			// box.innerHTML = emotion1a.val() + ": " + emotion1b.val();
 
-
-
-
 			// //UI CHANGES
 			// var newDiv1 = document.createElement("div"); 
 
@@ -100,7 +96,7 @@ function showUserData(userID){
 		})
 		
 	});
-}
+}r
 
 
 
