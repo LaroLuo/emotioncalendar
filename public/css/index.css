@@ -4,16 +4,15 @@ body {
 }
 
 .bg {
-	top: -30%;
 	left: 0;
-	width: 100%;
 	height: 100%;
+	width: 100%;
 	position: absolute;
 	text-align: center;
 }
 
 #bgGif {
-	width: 105%;
+	height: 100%;
 }
 
 .icon {
@@ -53,6 +52,11 @@ body {
 
 }
 
+#da {
+	font-size: 5vh;
+	font-family: 'Orbitron', sans-serif;
+}
+
 .emotion {
 	top: 35vh;
 	left: 40vw;
@@ -66,10 +70,12 @@ body {
 	margin-top: 5%;
 	height: 90%;
 	transition: transform .2s; /* Animation */
+	opacity: 0.5;
 }
 
 #emPic:hover {
-	transform: scale(1.05);
+	opacity: 0.9;
+	transform: scale(1.10);
 }
 
 .trend {
@@ -88,7 +94,7 @@ body {
 }
 
 #trendPic:hover {
-	transform: scale(1.05);
+	transform: scale(1.10);
 }
 
 .yesterday {
@@ -106,16 +112,29 @@ body {
 }
 
 #prevPic {
-	margin-top: 20%;
-	-webkit-transform: scaleX(-1);
+	margin-top: 25%;
+	height: 50%;
     transform: scaleX(-1);
-	height: 60%;
+    opacity: 0.5;
+}
+
+#prevPic:hover {
+	margin-top: 10%;
+	height: 80%;
+	opacity: 1;
 }
 
 #prevText {
 	width: 26vw;
 	height: 10vh;
 	float: left;
+}
+
+#prevFont {
+	margin: 0;
+	line-height: 10vh;
+	font-size: 3vh;
+	font-family: 'Orbitron', sans-serif;
 }
 
 .tommorrow {
@@ -126,15 +145,69 @@ body {
 	position: absolute;
 }
 
-#nextText {
-	width: 26vw;
+#next {
+	width: 4vw;
 	height: 10vh;
 	float: right;
 }
 
-#nextPic {
+#nextText {
 	right: 0;
-	margin-top: 20%;
-	height: 60%;
+	height: 10vh;
 	float: right;
+}
+
+#nextFont {
+	margin: 0;
+	line-height: 10vh;
+	font-size: 3vh;
+	font-family: 'Orbitron', sans-serif;
+}
+
+#nextPic {
+	margin-top: 25%;
+	height: 50%;
+	float: right;
+	opacity: 0.5;
+}
+
+#nextPic:hover {
+	margin-top: 10%;
+	height: 80%;
+	opacity: 1;
+}
+
+.tasks {
+	top: 85vh;
+	left: 40vw;
+	width: 20vw;
+	height: 15vh;
+	position: absolute;
+	text-align: center;
+}
+
+#tasksText {
+	width: 100%;
+	height: 33%;
+}
+
+#tasksFont {
+	margin-top: 0;
+	font-size: 3vh;
+	font-family: 'Orbitron', sans-serif;
+}
+
+#tasksDropdownPic {
+	height: 6vh;
+}
+
+#dropdownPic {
+    transform: rotate(90deg);
+    height: 100%;
+    opacity: 0.5;
+}
+
+#dropdownPic:hover {
+	height: 120%;
+	opacity: 1;
 }
