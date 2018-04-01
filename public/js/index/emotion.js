@@ -14,7 +14,7 @@ function updateEmotionPic(url) {
 	document.getElementById("emPic").src = url;
 } 
 
-function updateWelcome(username, emotion) {
+function updateWelcome(emotion) {
 	//document.getElementById("username").innerHTML = username;
 	switch (emotion) {
 		case "anger": emotion = "angry"; break;
@@ -23,6 +23,7 @@ function updateWelcome(username, emotion) {
 		case "sadness": emotion = "sad"; break;
 		case "surprise": emotion = "surprised"; break;
 	}
+
 	document.getElementById("emotionStr").innerHTML = emotion;
 }
 

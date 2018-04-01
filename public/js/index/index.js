@@ -4,7 +4,7 @@ var daySuffix = getDaySuffix();
 document.getElementById("da").innerHTML += month + " " + day + daySuffix;
 startTime();
 // anger joy fear sadness surprise
-var emotion = "sadness"; // change to get actual emotion later
+var emotion = "fear"; // change to get actual emotion later
 var emotionPicUrl = getURLBy(emotion);
 updateEmotionPic(emotionPicUrl);
 updateWelcome(emotion);

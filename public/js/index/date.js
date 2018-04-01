@@ -19,7 +19,7 @@ function getMonth() {
 	return month;
 }
 
-function getMonth(month) {
+function getMonthBy(month) {
 	switch (month) {
 		case 1: month = "Jan"; break;
 		case 2: month = "Feb"; break;
@@ -56,7 +56,7 @@ function getDaySuffix() {
 	return daySuffix;
 }
 
-function getDaySuffix(day) {
+function getDaySuffixBy(day) {
 	var daySuffix = "";
 	switch (day % 10) {
 		case 1: daySuffix = "st"; break;
