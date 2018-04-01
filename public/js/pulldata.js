@@ -22,20 +22,7 @@ var database = firebase.database();
 // 	});
 // }
 	//if can find user
-function userData(userID){
-	var userid = userID;
-	var userRef = database().ref('Users/'+userid+'/');
 
-	//read and listen, run if change
-	userRef.on('value', function(snapshot) {
-		console.log('Getting user data: ',snapshot.key);
-		console.log(typeof snapshot);
-		console.log(snapshot);
-		
-		//UI CHANGES
-		
-	});
-}
 
 	// //read once
 	// var indexRef = firebase.auth().currentUser.uid;

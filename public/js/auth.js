@@ -36,15 +36,61 @@ function getUserId(){
 
 	    if(childData==currentUser.email){
 	    	console.log('FOUND!: ', currentUser.email,childKey);
-	    	return childKey;
+	    	console.log('SHOWDATA: current user: ',childKey);
+	    	showUserData(childKey);
 	    }
 	  });
 	  console.log('NOT FOUND!: ');
-	  return "0000";
 	});
 }
 
-// ============ yes database =======
+// ============ end database =======
+
+
+function showUserData(userID){
+	var userid = userID;
+	console.log('showuserdata userid: '+userid);
+	var userRef = database.ref('Users/'+userid+'/conversation/');
+
+	//read and listen, run if change
+	userRef.once('value', function(snapshot) {
+		console.log('snapshot.key: '+snapshot.key);
+		//for each conversation
+		snapshot.forEach(function(childSnapshot){
+			console.log('conversation number: ',childSnapshot.key);
+			console.log(typeof childSnapshot);
+			console.log(childSnapshot);
+
+			// var emotion1a = childSnapshot.child('emotions/0/dimension');
+			// var emotion1b = childSnapshot.child('emotions/0/score');
+
+
+			// console.log('emotion1a: '+emotion1a.val());
+			// console.log('emotion1b: '+emotion1b.val());
+			
+			// var box = document.querySelector("#emotion1");
+			// box.innerHTML = emotion1a.val() + ": " + emotion1b.val();
+
+
+
+
+			// //UI CHANGES
+			// var newDiv1 = document.createElement("div"); 
+
+			// newDiv1.classList.add("one");
+
+			
+			// // and give it some content 
+			// var newContent = document.createTextNode(emotion1a+' score: '+emotion1b); 
+			// newDiv1.appendChild(newContent); 
+			// var currentDiv = document.querySelector('#emotionWrapper');
+			// document.body.insertBefore(newDiv1, currentDiv);
+		})
+		
+	});
+}
+
+
 
 function checkIfLoggedIn(){
 
@@ -62,24 +108,9 @@ function checkIfLoggedIn(){
 	    // ...
 
 	    console.log('u r currently signed in as: ', email);
+	    getUserId();
 	    
-	    //get userID
-	    // console.log('horay!~ you found the user ID and returned in session: ', currentUserId);
-
-	    var getUserIdPromise = new Promise(function(resolve, reject){
-	    	var currentUserId = getUserId();
-	    	if(currentUserId!='0000'){
-	    		resolve(currentUserId);
-	    	}
-	    	reject(currentUserId);
-	    });
-
-	    getUserIdPromise.then(function(result){
-	    	console.log('horay: ', result);
-	    }).catch(function(result){
-	    	console.log('booo no user found: ',result);
-	    })
-
+	    
 	    signinButton.setAttribute('style', 'display: inline-block; visibility: hidden;');
 	    signoutButton.setAttribute('style', 'display: inline-block; visibility: visible;');
 

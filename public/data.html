@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>user data page</title>
+  <title>
+    EmotionCalendar:)
+  </title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/dataVisual.css">
 
-	<style type="text/css" src="/css/dataVisual.css"></style>
-</head>
-<body>
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  
+  <script src="js/index/config.js"></script>
+ 
 
-	<h1>Conversation data No.<span id="conversationNum">1</span></h1>
-	<div class="wrapper" id="emotionWrapper">
-  <div class="one" id="emotionNum1">One</div>
-  <div class="one" id="emotionNum2">Two</div>
-  <div class="one" id="emotionNum3">Three</div>
-  <div class="one" id="emotionNum4">Four</div>
-  <div class="one" id="emotionNum5">Five</div>
-  <div class="one" id="emotionNum6">Six</div>
-  <div class="one" id="emotionNum7">Six</div>
+  <!-- customized module -->
+  <script src="js/index/date.js"></script>
+  <!-- <script type="text/javascript" src="js/pulldata.js"> </script> -->
 
-</div>
-
-  <script type="text/javascript">
- 	var emotionWrapper = querySelector('#emotionWrapper');
- 	
+  <script>
+   	config(); // Initialize Firebase
   </script>
+</head>
+<body onload="startTime()">
+	<button id="signinButton">Login with Google</button>
+	<button id="signoutButton">Logout</button>
+
+	<div id="google-displayname"></div>
+	<img src="" id="google-pic">
+
+	<script type="text/javascript" src="js/auth.js"></script>
+	<!- Above is all for sign in code ->
+	
+    <div id="conversationBox">
+    
+    <h1>Conversation data No.<span id="conversationNum">1</span></h1>
 
 
-<script type="text/javascript" src="js/pulldata.js"></script>
-<script type="text/javascript" src="js/auth.js"></script>
+    
+    <div class="wrapper" id="emotionWrapper">
+      
+    </div>
 
+
+  </div>
+
+	  <script src="js/index/index.js"></script>
 </body>
 </html>
