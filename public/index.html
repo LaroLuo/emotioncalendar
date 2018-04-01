@@ -10,11 +10,10 @@
   <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   
   <script src="js/index/config.js"></script>
- 
-
   <!-- customized module -->
   <script src="js/index/date.js"></script>
   <!-- <script type="text/javascript" src="js/pulldata.js"> </script> -->
+  <script src="js/index/emotion.js"></script>
 
   <script>
    	config(); // Initialize Firebase
@@ -29,8 +28,8 @@
 		<button id="signinButton" ><img src="png/google_signin.png" style="height: 100%"></button>
 	</div>
 	<button id="signoutButton">Logout</button>
-	<div class="welcome" id="welcome" style="display: none">
-		<h2 id="welcomeFont">Hi, <span id="google-displayname" ></span>, you are <span id="emotionStr"></span> today~</h2>
+	<div class="welcome" id="welcome" >
+		<h2 id="welcomeFont">Hi, <span id="google-displayname" ></span>! You are <span id="emotionStr"></span> today~</h2>
 	</div>
 	
 	<img src="" id="google-pic">
@@ -70,7 +69,7 @@
 	  		<h3 id="nextFont">View Tommorrow</h3>
 	  	</div>
 	  </div>
-	  <div class="tasks">
+	  <div class="tasks" id="tasks" onclick="showRecommend();">
 	  	<div id="tasksText">
 	  	  <h3 id="tasksFont">Tasks</h3>
 	  	</div>
@@ -78,7 +77,14 @@
 	  	  <img src="https://www.iconsdb.com/icons/preview/gray/arrow-32-xxl.png" id="dropdownPic" align="middle">
 	  	</div>
 	  </div>
+	  <div class="recommend" id="recommend" style="display: none;" >
+	  	<div class="tip" id="tip1">
+	  		<h3 class="tipFont" id="tf1"></h3>
+	  	</div>
+	  	<div class="tip" id="tip2">
+	  		<h3 class="tipFont" id="tf2"></h3>
+	  	</div>
+	  </div>
 	  <script src="js/index/index.js"></script>
-	  <!-- <script type="text/javascript" src="js/auth.js"></script> -->
 </body>
 </html>
