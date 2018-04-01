@@ -1,4 +1,4 @@
-function config() {
+function config(){
 	var config = {
 	  apiKey: "AIzaSyAxskV6EpJjuCBu8sSg0gQYCBcue6VAaKA",
 	  authDomain: "emotioncalendar-65853.firebaseapp.com",
@@ -9,3 +9,4 @@ function config() {
 	};
     firebase.initializeApp(config);
 }
+
