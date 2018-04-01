@@ -20,13 +20,13 @@ window.onload = function(){
 // ============ database setup ========
 var database = firebase.database();
 
-var indexRef = database.ref('/Index');
-var userRef = database.ref('/Users');
+var indexRef = database.ref('Index/');
+var userRef = database.ref('Users/');
 
 //find the user id using email of this user
 
-function getUserId(){
-	ref.once('value', function(snapshot) {
+function getUserId(user){
+	indexRef.once('value', function(snapshot) {
 	  snapshot.forEach(function(childSnapshot) {
 	    var childKey = childSnapshot.key;
 	    var childData = childSnapshot.val();
@@ -36,7 +36,7 @@ function getUserId(){
 
 
 	    if(childData==currentUser.email){
-	    	console.log('FOUND!');
+	    	console.log('FOUND!: ', currentUser.email,childKey);
 	    	return childKey;
 	    }
 	  });
@@ -50,7 +50,7 @@ function checkIfLoggedIn(){
 
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user) {
-	  	console.log('u r currently signed in');
+	  	
 	    // User is signed in.
 	    var displayName = user.displayName;
 	    var email = user.email;
@@ -61,9 +61,14 @@ function checkIfLoggedIn(){
 	    var providerData = user.providerData;
 	    // ...
 
+	    console.log('u r currently signed in as: ', email);
+	    
 	    //get userID
-	    var currentUserId = getUserId();
-	    console.log('horay!~ you found the user ID and returned in session: ', currentUserId);
+	    // console.log('horay!~ you found the user ID and returned in session: ', currentUserId);
+
+	    var getUserIdPromise = new Promise(function(resolve, reject){
+	    	var currentUserId = getUserId(user);
+	    });
 
 	    signinButton.setAttribute('style', 'display: inline-block; visibility: hidden;');
 	    signoutButton.setAttribute('style', 'display: inline-block; visibility: visible;');
@@ -86,7 +91,6 @@ function checkIfLoggedIn(){
 
 function signInWithGoogle(){
 
-	alert('test');
 	var provider = new firebase.auth.GoogleAuthProvider();
 	provider.addScope('profile');
 	provider.addScope('email');
