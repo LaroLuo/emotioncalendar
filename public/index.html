@@ -21,17 +21,23 @@
   </script>
 </head>
 <body onload="startTime()">
-	<button id="signinButton">Login with Google</button>
+	<div class="bg">
+	  <img src="https://media.giphy.com/media/10d3NDzD40xb0s/giphy.gif" id="bgGif">
+	</div>
+	<!- Background code ->
+	<div class="signin">
+		<button id="signinButton" ><img src="png/google_signin.png" style="height: 100%"></button>
+	</div>
 	<button id="signoutButton">Logout</button>
-
-	<div id="google-displayname"></div>
+	<div class="welcome" id="welcome" style="display: none">
+		<h2 id="welcomeFont">Hi, <span id="google-displayname" ></span>, you are <span id="emotionStr"></span> today~</h2>
+	</div>
+	
 	<img src="" id="google-pic">
 
 	<script type="text/javascript" src="js/auth.js"></script>
 	<!- Above is all for sign in code ->
-	<div class="bg">
-	  <img src="https://media.giphy.com/media/10d3NDzD40xb0s/giphy.gif" id="bgGif">
-	</div>
+	
 	<div id="txt"></div>
 	  <div class="time">
 	  	<h1 id="ti"></h1>
@@ -39,6 +45,9 @@
 	  <div class="date">
 	  	<h1 id="da"></h1>
 	  </div>
+	  <div id="coverCenter">
+	  	<div id="cover"></div>
+		</div>
 	  <div class="emotion">
 		<img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Eyes_Opened_large.png?v=1480481056" id="emPic">
 	  </div>
