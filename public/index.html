@@ -8,12 +8,9 @@
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-  
   <script src="js/index/config.js"></script>
-  <!-- customized module -->
-  <script src="js/index/date.js"></script>
-  <!-- <script type="text/javascript" src="js/pulldata.js"> </script> -->
-  <script src="js/index/emotion.js"></script>
+  
+
 
   <script>
    	config(); // Initialize Firebase
@@ -24,19 +21,19 @@
 	  <img src="https://media.giphy.com/media/10d3NDzD40xb0s/giphy.gif" id="bgGif">
 	</div>
 	<!- Background code ->
-	<div class="signin">
+	<!-- <div class="signin">
 		<button id="signinButton" ><img src="png/google_signin.png" style="height: 100%"></button>
 	</div>
 	<button id="signoutButton">Logout</button>
-	<div class="welcome" id="welcome" >
-		<h2 id="welcomeFont">Hi, <span id="google-displayname" ></span>! You are <span id="emotionStr"></span> today~</h2>
-	</div>
+	
 	
 	<img src="" id="google-pic">
 
-	<script type="text/javascript" src="js/auth.js"></script>
+	<script type="text/javascript" src="js/auth.js"></script> -->
 	<!- Above is all for sign in code ->
-	
+	<div class="welcome" id="welcome" >
+		<h2 id="welcomeFont">Hi, <span id="google-displayname" ></span>! You are <span id="emotionStr"></span> today~</h2>
+	</div>
 	<div id="txt"></div>
 	  <div class="time">
 	  	<h1 id="ti"></h1>
@@ -55,15 +52,15 @@
 	  </div>
 	  <div class="yesterday">
 	  	<div id="prev">
-	  		<img src="https://www.iconsdb.com/icons/preview/gray/arrow-32-xxl.png" id="prevPic" align="middle">
+	  		<img src="https://www.iconsdb.com/icons/preview/gray/arrow-32-xxl.png" id="prevPic" align="middle" onclick="prev();">
 	  	</div>
 	  	<div id="prevText"> 
-	  		<h3 id="prevFont">View Yesterday</h3>
+	  		<h3 id="prevFont" >View Yesterday</h3>
 	  	</div>
 	  </div>
-	  <div class="tommorrow">
+	  <div class="tommorrow" id="tommorrow" style="display: none">
 	  	<div id="next">
-	  		<img src="https://www.iconsdb.com/icons/preview/gray/arrow-32-xxl.png" id="nextPic" align="middle">
+	  		<img src="https://www.iconsdb.com/icons/preview/gray/arrow-32-xxl.png" id="nextPic" align="middle" onclick="next();">
 	  	</div>
 	  	<div id="nextText"> 
 	  		<h3 id="nextFont">View Tommorrow</h3>
@@ -85,6 +82,12 @@
 	  		<h3 class="tipFont" id="tf2"></h3>
 	  	</div>
 	  </div>
+
+	  
+	  
+	  <script src="js/getMood.js"></script>
+	  <script src="js/index/date.js"></script>
+	  <script src="js/index/emotion.js"></script>
 	  <script src="js/index/index.js"></script>
 </body>
 </html>

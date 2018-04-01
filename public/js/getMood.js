@@ -4,7 +4,9 @@ var moodsRef = database.ref('moods/');
 console.log(database.ref('moods/1522581819619/'));
 
 function translate(UNIX_timestamp){
-	var a = new Date(UNIX_timestamp * 1000);
+	console.log(typeof UNIX_timestamp);
+	var a = new Date(parseInt(UNIX_timestamp));
+	console.log(a.getMonth());
 	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 	  var year = a.getFullYear();
 	  // var yr = "20"+ year.substr(2,3);
@@ -14,27 +16,36 @@ function translate(UNIX_timestamp){
 	  return time;
 }
 
-function getEmotion(reqTime){
-	var returnArray =[];
+
+
+
+
+function getDailyEmotions(obj){
+	var returnArray = []
+	var found = false;
 	console.log('time to run');
 
-	moodsRef.once('value', function(snapshot){
+	return moodsRef.once('value').then(snapshot => {
 		snapshot.forEach(function(childSnap){
-			console.log("translating: "+translate(childSnap.key));
+			var arr = []
+			console.log("translating: "+childSnap.key+' '+translate(childSnap.key));
 			//when found
-			if(reqTime==translate(childSnap.key)){
+			if(obj.reqTime==translate(childSnap.key)){
+				found = true;
 				console.log('yes!');
 				var moodRef = childSnap.child('mood/');
 
 				moodRef.forEach(function(childMood){
-					returnArray.push(childMood.val());
-					console.log(childMood.val());
-				})
-			}
-		})
-	})
+					obj.result.push(childMood.val());
+					console.log(obj.result);
+				});
 
-	return returnArray;
+				console.log("second test" + obj.result);
+				return obj;
+			}
+		});
+	});
 };
 
-console.log("haha: " + getEmotion("50218/Sep/12"));
+var obj = {"reqTime" : "50218/Sep/12","result" : []}
+getDailyEmotions(obj).then(snapshot => {console.log("real",obj.result)})

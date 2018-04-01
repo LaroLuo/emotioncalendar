@@ -6,7 +6,7 @@ function getURLBy(emotion) {
 		case "fear": return "http://cdn.shopify.com/s/files/1/1061/1924/products/Fearful_Face_Emoji_grande.png?v=1480481053";
 		case "sadness": return "http://idighardware.com/wp-content/uploads/2017/09/Crying-Emoji.png";
 		case "surprise": return "https://annelunedotcom.files.wordpress.com/2017/12/omg_emoji_icon1.png?w=288";
-		default: return "error";
+		default: return "https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Eyes_Opened_large.png?v=1480481056";
 	}
 }
 
@@ -22,6 +22,7 @@ function updateWelcome(emotion) {
 		case "fear": emotion = "scared"; break;
 		case "sadness": emotion = "sad"; break;
 		case "surprise": emotion = "surprised"; break;
+		case "none": emotion = "not recording "; break;
 	}
 
 	document.getElementById("emotionStr").innerHTML = emotion;
@@ -124,11 +125,13 @@ function getSurpriseRecommend() {
 
 function getEmotion(arr) {
 	var i = arr.indexOf(Math.max(...arr));
+
 	switch (i) {
 		case 0: return "anger";
 		case 1: return "joy";
 		case 2: return "fear";
 		case 3: return "sadness";
 		case 4: return "surprise";
+		default: return "none";
 	}
 }
