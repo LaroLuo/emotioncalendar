@@ -31,7 +31,7 @@ function userData(userID){
 		console.log('Getting user data: ',snapshot.key);
 		console.log(typeof snapshot);
 		console.log(snapshot);
-
+		
 		//UI CHANGES
 		
 	});
