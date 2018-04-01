@@ -61,6 +61,18 @@ function showUserData(userID){
 			console.log(typeof childSnapshot);
 			console.log(childSnapshot);
 
+			var emotions = childSnapshot.child('emotions');
+			emotions.forEach(function(perEmotion){
+				var newDiv = document.createElement("div"); 
+
+				newDiv.classList.add("one");
+				var tempData = perEmotion.dimension.val() + ": "perEmotion.score.val();
+				console.log("tempData: "+ tempData);
+				newDiv.innerHTML = tempData;
+
+				document.querySelector('#emotionWrapper').appendChild(newDiv);
+			});
+
 			// var emotion1a = childSnapshot.child('emotions/0/dimension');
 			// var emotion1b = childSnapshot.child('emotions/0/score');
 
